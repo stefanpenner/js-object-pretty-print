@@ -1,7 +1,7 @@
 {
   "name": "js-object-pretty-print",
-  "version": "0.1.0",
-  "description": "Dumps a javascript object as a JSON string, formatted for either HTML or a text file. It provides proper line breaks and left indentation",
+  "version": "0.1.1",
+  "description": "Serializes a javascript object to a printable string. String is formatted to be used in either pure text environments, like a console log or in HTML. **js-object-pretty-print** is not a JSON serializer",
   "main": "index.js",
   "scripts": {
     "test": "grunt mochaTest"

@@ -1,7 +1,7 @@
 js-object-pretty-print
 ======================
 
-Serializes a javascript object to a printable string. It is not a JSON serializer as it does not surround property names with quotes.
+Serializes a javascript object to a printable string. String is formatted to be used in either pure text environments, like a console log or in HTML. **js-object-pretty-print** is not a JSON serializer
 
 ## Installation
 
