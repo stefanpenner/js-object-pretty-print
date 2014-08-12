@@ -1,0 +1,32 @@
+{
+  "name": "js-object-pretty-print",
+  "version": "0.1.0",
+  "description": "Dumps a javascript object as a JSON string, formatted for either HTML or a text file. It provides proper line breaks and left indentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt mochaTest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cvadillo/js-object-pretty-print.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Object",
+    "pretty",
+    "print"
+  ],
+  "author": "Carlos M. Vadillo <carlos.vadillo@gmail.com> (http://carlosvadillo.com/)",
+  "license": "Apache V2",
+  "bugs": {
+    "url": "https://github.com/cvadillo/js-object-pretty-print/issues"
+  },
+  "homepage": "https://github.com/cvadillo/js-object-pretty-print",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.5",
+    "grunt-jslint": "^1.1.12",
+    "grunt-mocha-test": "^0.11.0",
+    "mocha": "^1.21.4"
+  }
+}
