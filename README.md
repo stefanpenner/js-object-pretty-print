@@ -51,7 +51,7 @@ String to determine the formatting of the output. One of "PRINT", "HTML" or "JSO
 
 Expected behavior
 * **PRINT** Indentation is done with the space character, line breaks are done with the newLine character "\n" and the attribute names are not surrounded with quotes. Pretty similar to what you see in the -webkit debugger
-* **HTML** Indentation is done with non breakable spaces "&nbsp;", line breaks are done with "<br/>". Otherwise identical to print. Handy to dump into a div inside a page and get a decent formatting
+* **HTML** Indentation is done with non breakable spaces &amp;nbsp;, line breaks are done with &lt;br/&gt;". Otherwise identical to print. Handy to dump into a div inside a page and get a decent formatting
 * **JSON** Only difference with PRINT is that attribute names are surrounded with quotes
 
 ## Release History
