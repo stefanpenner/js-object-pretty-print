@@ -38,7 +38,7 @@ Either the full or the minified versions render the same. Both are unit tested w
 
 Function pretty accepts three arguments:
 
-    pretty(*object*, *indentSize*, *outputTo*);
+    pretty(object, indentSize, outputTo);
 
 ### object
 Is the javascript object to serialize
