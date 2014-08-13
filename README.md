@@ -40,14 +40,15 @@ Function pretty accepts three arguments:
 
     pretty(object, indentSize, outputTo);
 
-### object
-Is the javascript object to serialize
+### object (mandatory)
+Is the javascript object to serialize. If no object is present the function will return a string with an error.
 
-### indentSize
+### indentSize (optional)
 Number of spaces in a one level indent. Default 4
 
-### outputTo
-String to determine the formatting of the output. One of "PRINT", "HTML" or "JSON". This argument is case insensitive
+### outputTo (optional)
+String to determine the formatting of the output. One of "PRINT", "HTML" or "JSON". This argument is case insensitive. Default value is "PRINT"
+
 Expected behavior
 * **PRINT** Indentation is done with the space character, line breaks are done with the newLine character "\n" and the attribute names are not surrounded with quotes. Pretty similar to what you see in the -webkit debugger
 * **HTML** Indentation is done with non breakable spaces "&nbsp;", line breaks are done with "<br/>". Otherwise identical to print. Handy to dump into a div inside a page and get a decent formatting
