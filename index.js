@@ -118,7 +118,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
             indentLength = 4;
         }
 
-        outputTo = outputTo.toLowerCase() || 'print';
+        outputTo = (outputTo || 'print').toLowerCase();
         indentString = repeatString(outputTo === 'html' ? '&nbsp;' : ' ', indentLength);
         prettyObject = outputTo === 'json' ? prettyObjectJSON : prettyObjectPrint;
         newLine = outputTo === 'html' ? '<br/>' : '\n';

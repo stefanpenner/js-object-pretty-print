@@ -107,3 +107,26 @@ describe('Using minified version', function () {
     });
 });
 
+describe('Object serialized with default arguments', function () {
+    var serialized = pretty(value);
+    it('Serialized object', function () {
+        assert.isNotNull(serialized, 'This should never be null');
+        assert.equal(typeof serialized, 'string');
+        assert.notEqual(serialized, 'Error: no Javascript object provided');
+    });
+
+    it('Testing indentation', function () {
+        assert.notEqual(serialized.indexOf('    name: "Damaso Infanzon Manzo"', 0), -1);
+        assert.notEqual(serialized.indexOf('    address:'), -1);
+        assert.notEqual(serialized.indexOf('        street:'), -1);
+        assert.notEqual(serialized.indexOf('        city:'), -1);
+        assert.notEqual(serialized.indexOf('        state:'), -1);
+        assert.notEqual(serialized.indexOf('        zip:'), -1);
+        assert.notEqual(serialized.indexOf('        true,'), -1);
+        assert.notEqual(serialized.indexOf('        false'), -1);
+    });
+
+    it('Dates created', function () {
+        assert.notEqual(serialized.indexOf('Tue May 25 1954 00:00:00'), -1);
+    });
+});
