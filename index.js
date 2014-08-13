@@ -9,6 +9,8 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
         valueType,
         repeatString,
         prettyObject,
+        prettyObjectJSON,
+        prettyObjectPrint,
         prettyArray,
         pretty;
 
@@ -41,7 +43,21 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
         return dst;
     };
 
-    prettyObject = function (object, indent) {
+    prettyObjectJSON = function (object, indent) {
+        var value = [],
+            property;
+
+        indent += indentString;
+        for (property in object) {
+            if (object.hasOwnProperty(property)) {
+                value.push(indent + '"' + property + '": ' + pretty(object[property], indent));
+            }
+        }
+
+        return value.join(newLineJoin) + newLine;
+    };
+
+    prettyObjectPrint = function (object, indent) {
         var value = [],
             property;
 
@@ -81,7 +97,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
             return fromArray + (element ? 'true' : 'false');
 
         case 'date':
-            return fromArray + element.toString();
+            return fromArray + '"' + element.toString() + '"';
 
         case 'number':
             return fromArray + element;
@@ -102,8 +118,9 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
             indentLength = 4;
         }
 
-        outputTo = outputTo || 'text';
+        outputTo = outputTo.toLowerCase() || 'print';
         indentString = repeatString(outputTo === 'html' ? '&nbsp;' : ' ', indentLength);
+        prettyObject = outputTo === 'json' ? prettyObjectJSON : prettyObjectPrint;
         newLine = outputTo === 'html' ? '<br/>' : '\n';
         newLineJoin = ',' + newLine;
         return pretty(jsObject, '') + newLine;

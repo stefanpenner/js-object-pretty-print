@@ -1,7 +1,7 @@
 {
   "name": "js-object-pretty-print",
-  "version": "0.1.1",
-  "description": "Serializes a javascript object to a printable string. String is formatted to be used in either pure text environments, like a console log or in HTML. **js-object-pretty-print** is not a JSON serializer",
+  "version": "0.1.2",
+  "description": "Serializes a javascript object to a printable string. String is formatted to be used in either pure text environments, like a console log or in HTML or to create a JSON output.",
   "main": "index.js",
   "scripts": {
     "test": "grunt mochaTest"
@@ -25,6 +25,7 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "grunt": "^0.4.5",
+    "grunt-contrib-compress": "^0.10.0",
     "grunt-jslint": "^1.1.12",
     "grunt-mocha-test": "^0.11.0",
     "mocha": "^1.21.4"

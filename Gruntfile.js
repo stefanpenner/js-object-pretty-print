@@ -4,7 +4,8 @@ module.exports = function (grunt) {
         'jslint': {
             'all': {
                 'src': [
-                    '*.js',
+                    'index.js',
+                    'Gruntfile.js',
                     '*.json',
                     'test/*.js'
                 ],
@@ -24,14 +25,27 @@ module.exports = function (grunt) {
                 },
                 'src': ['test/**/*.js']
             }
+        },
+        'uglify': {
+            'options': {
+                // the banner is inserted at the top of the output
+                'banner': '/*! js-object-pretty-print.js <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            'dist': {
+                'files': {
+                    'index-min.js': ['index.js']
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', [
         'jslint',
+        'uglify',
         'mochaTest'
     ]);
 };

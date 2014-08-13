@@ -1,7 +1,7 @@
 js-object-pretty-print
 ======================
 
-Serializes a javascript object to a printable string. String is formatted to be used in either pure text environments, like a console log or in HTML. **js-object-pretty-print** is not a JSON serializer
+Serializes a javascript object to a printable string. String is formatted to be used in a pure text environments, like a console log, as an HTML output,  or to create a JSON string.
 
 ## Installation
 
@@ -24,6 +24,16 @@ var pretty = require('js-object-pretty-print').pretty,
 process.stdout.write(pretty(foo));
 ```
 
+It is also possible to use a minified version of the code
+
+```
+...
+var prettyMin = require('js0object-pretty-print/index-min.js').pretty;
+...
+```
+
+Either the full or the minified versions render the same. Both are unit tested with Mocha and Chai
+
 ## Options
 
 Function pretty accepts three arguments:
@@ -37,8 +47,14 @@ Is the javascript object to serialize
 Number of spaces in a one level indent. Default 4
 
 ### outputTo
-Whether to serialize for text or for HTML. Default is 'text'
+String to determine the formatting of the output. One of "PRINT", "HTML" or "JSON". This argument is case insensitive
+Expected behavior
+* **PRINT** Indentation is done with the space character, line breaks are done with the newLine character "\n" and the attribute names are not surrounded with quotes. Pretty similar to what you see in the -webkit debugger
+* **HTML** Indentation is done with non breakable spaces "&nbsp;", line breaks are done with "<br/>". Otherwise identical to print. Handy to dump into a div inside a page and get a decent formatting
+* **JSON** Only difference with PRINT is that attribute names are surrounded with quotes
 
 ## Release History
 * 0.1.0 Initial Release
+* 0.1.1 Bug fixes
+* 0.1.2 Add JSON output, create robust testing with Mocha, add minified version of the code
 
