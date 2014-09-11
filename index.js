@@ -109,7 +109,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
             return fromArray + '"' + element + '"';
 
         default:
-            return fromArray + type;
+            return fromArray + element.toString();
         }
     };
 
