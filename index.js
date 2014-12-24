@@ -6,6 +6,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
         newLineJoin,
         TOSTRING,
         TYPES,
+        HAS_OWN,
         valueType,
         repeatString,
         prettyObject,
@@ -15,6 +16,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
         pretty;
 
     TOSTRING = Object.prototype.toString;
+    HAS_OWN = Object.prototype.hasOwnProperty;
 
     TYPES = {
         'undefined'        : 'undefined',
@@ -49,7 +51,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
 
         indent += indentString;
         for (property in object) {
-            if (object.hasOwnProperty(property)) {
+            if (HAS_OWN.call(object, property)) {
                 value.push(indent + '"' + property + '": ' + pretty(object[property], indent));
             }
         }
@@ -63,7 +65,7 @@ module.exports.pretty = function (jsObject, indentLength, outputTo) {
 
         indent += indentString;
         for (property in object) {
-            if (object.hasOwnProperty(property)) {
+            if (HAS_OWN.call(object, property)) {
                 value.push(indent + property + ': ' + pretty(object[property], indent));
             }
         }
